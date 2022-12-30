@@ -7,6 +7,13 @@
 const router = require("express").Router();
 const controller = require("./reservations.controller");
 
-router.route("/").get(controller.list);
+
+
+
+//reservations, add Get and Post
+router.route("/")
+   .get(controller.list)
+   .post(controller.create)
+   .all(methodNotAllowed)
 
 module.exports = router;
