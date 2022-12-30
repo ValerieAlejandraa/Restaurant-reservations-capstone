@@ -1,11 +1,11 @@
 /**
  * List handler for reservation resources
  */
-
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 const service = require("./reservations.service");
-const hasProperties = require("../errors/");
 
+
+//Validations
 const validProperties = [
   "first_name",
   "last_name",
@@ -76,13 +76,7 @@ async function hasValidProperties(req, res, next) {
 
   next();
 }
-const hasRequiredProperties = hasProperties(
-  "first_name",
-  "last_name",
-  "mobile_number",
-  "reservation_date",
-  "people"
-);
+
 
 function isValidDayOfWeek(req, res, next) {
   if (req.body.data) {
@@ -149,6 +143,7 @@ function hasValidStatus(req, res, next) {
   next();
 }
 
+//CRUD
 async function create(req, res, next) {
   const newReservation = await service.create(req.body);
   res.status(201).json({ data: newReservation });
@@ -192,7 +187,6 @@ module.exports = {
   read: [asyncErrorBoundary(reservationExists), read],
   create: [
     hasValidProperties,
-    hasRequiredProperties,
     isBooked,
     isValidDayOfWeek,
     asyncErrorBoundary(create),

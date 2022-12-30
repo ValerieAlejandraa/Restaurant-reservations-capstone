@@ -5,8 +5,8 @@ exports.up = function (knex) {
     table.string("first_name").notNullable();//table.string is the column
     table.string("last_name").notNullable();
     table.string("mobile_number").notNullable();
-    table.string("reservation_date").notNullable();
-    table.string("reservation_time").notNullable();
+    table.date("reservation_date").notNullable();
+    table.time("reservation_time").notNullable();
     table.integer("people").unsigned().notNullable(); //unsigned: you cannot insert negative numbers
     table.string("status").notNullable().defaultTo("booked");
   });
