@@ -11,10 +11,9 @@ export default function SeatTable() {
   const { reservation_id } = useParams();
   const resId = Number(reservation_id);
 
-  //need 3 useStates..
+  //need 3 state hooks
   const [tableId, setTableId] = useState("");
   const [updateTableError, setUpdateTableError] = useState(null);
-
   const [tables, setTables] = useState([]);
 
   useEffect(loadTables, [resId]);
