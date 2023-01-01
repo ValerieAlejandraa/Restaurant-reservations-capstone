@@ -9,14 +9,14 @@ import ErrorAlert from "../layout/ErrorAlert";
 export default function SeatTable() {
   const history = useHistory();
   const { reservation_id } = useParams();
-  const resId = Number(reservation_id);
+  const reservationId = Number(reservation_id);
 
   //need 3 state hooks
   const [tableId, setTableId] = useState("");
   const [updateTableError, setUpdateTableError] = useState(null);
   const [tables, setTables] = useState([]);
 
-  useEffect(loadTables, [resId]);
+  useEffect(loadTables, [reservationId]);
 
   function loadTables() {
     const abortController = new AbortController();
