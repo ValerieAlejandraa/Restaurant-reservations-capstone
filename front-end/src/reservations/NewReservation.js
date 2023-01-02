@@ -2,7 +2,7 @@
 //so that I know how many customers will arrive at the restaurant on a given day.
 
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import ErrorAlert from "../layout/ErrorAlert"; //error boundary
 
 //filling and submitting form creates a new reservation and then displays the dashboard for the reservation date
@@ -13,13 +13,14 @@ import ReservationForm from "./ReservationForm";
 //adding a new reservation
 function NewReservation() {
   const history = useHistory();
+
   const initial = {
     first_name: "",
     last_name: "",
     mobile_number: "",
-    people: 0,
     reservation_date: "",
     reservation_time: "",
+    people: 1,
   };
 
   const [reservation, setReservation] = useState(initial);

@@ -11,7 +11,8 @@ function EditReservation() {
   //retrieve route parameters from the component rendered by the matching route.
   const { reservation_id } = useParams();
   
-  const initial= {
+  //new form
+  const initial = {
     first_name: "",
     last_name: "",
     mobile_number: "",
