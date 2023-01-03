@@ -3,9 +3,10 @@
  *
  * @type {Router}
  */
-const methodNotAllowed = require("../errors/MethodNotAllowed")
+
 const router = require("express").Router();
 const controller = require("./reservations.controller");
+const methodNotAllowed = require("../errors/methodNotAllowed");
 
 //edit
 router
@@ -28,7 +29,7 @@ router
   .put(controller.updateReservation)
   .all(methodNotAllowed);
 
-//home
+//root
 router
   .route("/")
   .get(controller.list)
